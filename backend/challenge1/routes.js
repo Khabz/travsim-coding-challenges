@@ -9,15 +9,15 @@ const BASE_URL = "http://www.omdbapi.com/"
 module.exports = http.createServer(async(req, res) => {
     const reqUrl = url.parse(req.url, true);
     /**
-     * @route api/search?name=movie_title&year=year_released&page=page_number
+     * @route api/search?title=movie_title&year=year_released&page=page_number
      * @description Search movie(s) by title, type(options: movie, series, episode)/year
      * @param { name, year, page }
      */
     if (reqUrl.pathname == "/api/movies/search" && req.method === "GET") {
         try {
             req.params = params(req);
-            const { name, year, page } = req.params;
-            const SEARCH_URL = `${BASE_URL}?s=${name}&y=${year}&page=${page}&apikey=${OMBD_API_KEY}`;
+            const { title, year, page } = req.params;
+            const SEARCH_URL = `${BASE_URL}?s=${title}&y=${year}&page=${page}&apikey=${OMBD_API_KEY}`;
 
             await http.get(SEARCH_URL, (response) => {
                 let results = "";
