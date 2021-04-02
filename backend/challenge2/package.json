@@ -1,0 +1,16 @@
+{
+    "name": "challenge2",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "consola": "^2.15.3",
+        "linereader": "^1.1.0"
+    }
+}
