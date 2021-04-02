@@ -1,33 +1,16 @@
-// Main styles
-import React, { Component } from 'react';
-import './App.css';
-// Components
-import TodoList from './components/TodoList';
-import { connect } from 'react-redux';
+import React from 'react'
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-class App extends Component  {
-  render() {
-    const { lists } = this.props;
-    return (
-      <div className="App">
-        <h1>Drag n Drop</h1>
-        <div style={styles.listsContainer}>
-          { lists.map(list => <TodoList title={list.title} cards={list.cards} key={list.id}/>) }
-        </div>
-      </div>
-    );
-  }
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+import Todos from './components/Todos'
+import { GlobalProvider } from './store/GlobalContext'
+import './App.css'
+
+export default function App () {
+	return (
+		<GlobalProvider>
+			<Todos />
+		</GlobalProvider>
+	)
 }
-
-const styles = {
-  listsContainer: {
-    display: 'flex',
-    flexDirection: 'row'
-  }
-}
-
-const mapStateToProps = state => ({
-  lists: state.lists
-})
-
-export default connect(mapStateToProps) (App);
