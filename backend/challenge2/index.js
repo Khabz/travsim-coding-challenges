@@ -1,5 +1,4 @@
 const http = require("http");
-const fs = require('fs');
 
 var LineReader = require('linereader');
 var lr = new LineReader('./files/testFile.js');
@@ -16,24 +15,34 @@ function checkStyleGuide() {
 
         if (lineno === 1) {
             if (line[0] === "c") {
-                if (line[6] != " " || (line[8] != " ")) {
-                    if (line[10] != ";" || line[9] != ";" || line[8] != ";" || line[7] != ";") {
+                if (line[7] != " " || (line[9] != " ")) {
+                    if (line[11] != ";" && line[10] != ";" && line[9] != ";" && line[8] != ";" && line[7] != ";") {
                         const message = 'No semi colon and space in line ' + lineno;
                         console.log(message);
-                        lr._nextLine();
                     } else {
                         const message = 'No space in line ' + lineno;
                         console.log(message);
                     }
-                }
-            }
-        } else {
-            if (line[0] === "l") {
-                if (line[5] != " ") {
-                    const message = 'No semi colon and space in line ' + lineno;
+                } else if (line[11] != ";" && line[10] != ";" && line[9] != ";" && line[8] != ";" && line[7] != ";") {
+                    const message = 'No semi colon on ' + lineno;
                     console.log(message);
                 }
-
+            }
+            lr._nextLine();
+        } else {
+            if (line[0] === "l") {
+                if (line[5] != " " && line[7] != " ") {
+                    if (line[9] != ";") {
+                        const message = 'No semi colon and space in line ' + lineno;
+                        console.log(message);
+                    } else {
+                        const message = 'No space in line ' + lineno;
+                        console.log(message);
+                    }
+                } else if (line[9] != ";") {
+                    const message = 'No space in line ' + lineno;
+                    console.log(message);
+                }
                 lr.close();
             }
         }
