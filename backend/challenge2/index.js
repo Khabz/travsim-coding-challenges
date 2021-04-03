@@ -17,14 +17,14 @@ function checkStyleGuide() {
             if (line[0] === "c") {
                 if (line[7] != " " || (line[9] != " ")) {
                     if (line[11] != ";" && line[10] != ";" && line[9] != ";" && line[8] != ";" && line[7] != ";") {
-                        const message = 'No semi colon and space in line ' + lineno;
+                        const message = 'No semi colon and space on line ' + lineno;
                         console.log(message);
                     } else {
-                        const message = 'No space in line ' + lineno;
+                        const message = 'No space on line ' + lineno;
                         console.log(message);
                     }
                 } else if (line[11] != ";" && line[10] != ";" && line[9] != ";" && line[8] != ";" && line[7] != ";") {
-                    const message = 'No semi colon on ' + lineno;
+                    const message = 'No semi colon on line ' + lineno;
                     console.log(message);
                 }
             }
@@ -33,14 +33,14 @@ function checkStyleGuide() {
             if (line[0] === "l") {
                 if (line[5] != " " && line[7] != " ") {
                     if (line[9] != ";") {
-                        const message = 'No semi colon and space in line ' + lineno;
+                        const message = 'No semi colon and space on line ' + lineno;
                         console.log(message);
                     } else {
-                        const message = 'No space in line ' + lineno;
+                        const message = 'No space on line ' + lineno;
                         console.log(message);
                     }
                 } else if (line[9] != ";") {
-                    const message = 'No space in line ' + lineno;
+                    const message = 'No semi colon on line ' + lineno;
                     console.log(message);
                 }
                 lr.close();
