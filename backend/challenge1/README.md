@@ -22,3 +22,14 @@ This is a simple Node REST API created without ExpressJs and any third-party lib
 2. type : (options: movie, series, episode) - Optional
 3. year : Year released - Optional
 4. page : Page number - Optional
+
+`
+http://localhost:3000/api/search?title=movie_title&year=year_released&page=page_number
+`
+
+### GET movie by id
+
+`
+http://localhost:3000/api/movies?id=imdbId
+`
+
